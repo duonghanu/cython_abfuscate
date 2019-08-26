@@ -20,3 +20,18 @@ This docker container takes an app with clear code then generates a new one with
 
 
 In this example I've "obfuscated" `my_precious.py`
+
+
+# Inspect locally
+
+You can copy and inspect the result files locally
+
+First build
+
+    docker build -t ob_test .
+
+Then copy the files
+
+    sudo docker cp $(docker run -i -d ob_test):/app . 
+
+And locally you will find the `app` directory
