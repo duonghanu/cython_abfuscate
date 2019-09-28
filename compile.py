@@ -20,6 +20,7 @@ for root, subdirs, files in os.walk(ROOTDIR):
             ext_modules.append(Extension(new_file_name, [file_to_change]))
 
 
+# See the command in the Docker file
 setup(
     name='QantEv',
     cmdclass={'build_ext': build_ext},

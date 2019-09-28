@@ -1,0 +1,6 @@
+!.gitignore
+
+# No datapushing
+*.pkl
+*.csv
+*.ipynb

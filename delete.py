@@ -3,10 +3,6 @@ from config import ROOTDIR, EXCLUDE
 
 for root, subdirs, files in os.walk(ROOTDIR):
     for file_name in files:
-        #if '__pycache__' in subdirs:
-        #    directory_to_remove = root+'/__pycache__'
-        #    os.remove(directory_to_remove)
-        #    print("directory "+directory_to_remove+" deleted")#to_debug
         if file_name[-4:]==".pyc":
             file_to_remove = root+'/'+file_name
             os.remove(file_to_remove)
