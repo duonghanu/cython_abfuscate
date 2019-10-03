@@ -9,12 +9,13 @@ jobs:
       - run:
           name: "A hello world !"
           command: echo "Hello world !"
-      - add_ssh_keys:
-          fingerprints:
-            - "59:56:5d:ba:e8:6d:90:a8:2d:7d:0e:41:d8:60:c6:1c"
 
       - run:
-          name: "Cloning private repo"
-          command: git clone git@github.com:taoufik07/ensat-framework.git
+          name: "Building the image"
+          command: |
+            docker build --build-arg SSH_PRIVATE_KEY="$(cat ~/.ssh/id_rsa)" -t taoufik07/cython_obfuscate .
 
+      - run:
+          name: "Remove intermediate container"
+          command: docker rmi -f $(docker images -q --filter label=stage=building_optimizer)
 
